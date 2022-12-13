@@ -128,7 +128,7 @@ export default function CountryView() {
                       <tr key={dt.countryId}>
                         <td>{dt.countryId}</td>
                         <td>{dt.countryName}</td>
-                        <td>{dt.region.regionName}</td>
+                        <td>{dt.region.regionId}</td>
                         <td className='text-right'>
                           <button className='btn btn-sm btn-accent text-white text-xs font-normal ml-2'onClick={() => onClick(dt.countryId)}>Edit</button>
                           <button className='btn btn-sm btn-error text-white text-xs font-normal ml-2'

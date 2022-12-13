@@ -30,7 +30,7 @@ function* handleDelCountry(action) {
   const { payload } = action
   try {
     const result = yield call(CountryApi.Delete, payload)
-    yield put(DelCountrySuccess(result))
+    yield put(DelCountrySuccess(payload))
   } catch (error) {
     yield put(DelCountryFailed(error))
   }

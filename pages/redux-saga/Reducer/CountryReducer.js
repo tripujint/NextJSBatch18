@@ -69,7 +69,8 @@ const editCountry = (state,action) => {
   const filter = state.countries.filter(el=>el.countryId !== payload.countryId)
   return {
     ...state,
-    countries: [...filter, payload]
+    // countries: [...filter, payload]
+    countries: [...state.countries, payload]
   }
 }
 

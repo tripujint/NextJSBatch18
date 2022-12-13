@@ -1,5 +1,4 @@
 import { useFormik } from 'formik'
-import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import * as Yup from 'yup'
@@ -18,16 +17,12 @@ export default function FormikAddCountry(props) {
     region: Yup.number('Choose Region').required('Region is Required')
   })
 
-  // useEffect(() => {
-  //   dispatch(GetCountryRequest())
-  // }, [])
-
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
       countryId: country.countryId,
       countryName: country.countryName,
-      region: country.region.regionId,
+      region: '',
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
@@ -71,6 +66,7 @@ export default function FormikAddCountry(props) {
                       autoComplete="countryId"
                       onInvalid={formik.validateField}
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                      disabled
                     />
                     {formik.touched.countryId && formik.errors.countryId ? <span className="mt-2 text-sm text-red-600">{formik.errors.countryId}</span> : null}
                   </div>
